@@ -43,13 +43,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	static int yPos;
 	static int x, y, n, scnt = 0;
 	static SIZE size;
+
+	static int cntSpace = 0;
 	// 메시지 처리하기
 	switch (uMsg) {
 	case WM_CREATE:
 		CreateCaret(hWnd, NULL, 5, 15);
 		ShowCaret(hWnd);
 		count = 0;
-		scanf("%d %d %d", &x, &y, &n);
 		break;
 	case WM_KEYDOWN:
 		hDC = GetDC(hWnd);
@@ -60,10 +61,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			yPos += 20;
 			scnt = 0;
 		}
+		else if (wParam == VK_SPACE) {
+			++cntSpace;
+			str[count++] = wParam;
+		}
 		else
 			str[count++] = wParam;
 		str[count] = '\0';
 		
+		if (cntSpace == 3) {
+			PostQuitMessage(0);
+		}
 		InvalidateRect(hWnd, NULL, TRUE);
 		ReleaseDC(hWnd, hDC);
 		break;
