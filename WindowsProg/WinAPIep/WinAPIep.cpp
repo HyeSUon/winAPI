@@ -7,7 +7,16 @@
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
+
+
+
 	if (uMsg == WM_PAINT) {
+		unsigned int* p = new unsigned int[16 * 8];
+		for (int i = 0; i < 16 * 8; ++i) *(p + i) = 0xFF0000FF;
+		int color_depth = ::GetDeviceCaps(hDC, BITSPIXEL);
+		HBITMAP h_my_bmp = CreateBitmap(16, 8, 1, color_depth, p);
+		delete[]p;
+		DeleteObject(h_my_bmp);
 	}
 	else if (uMsg == WM_DESTROY) PostQuitMessage(0);
 

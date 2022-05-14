@@ -15,44 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="warming2-1.c">
+    <ClCompile Include="main.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="warming2-2.c">
+    <ClCompile Include="object.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="warming2-3.c">
+    <ClCompile Include="main2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="warming2-4.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-7.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-5.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-6.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\assignment\2\warming6.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-8.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-9.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-10.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-11.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="warming2-12.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="object.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

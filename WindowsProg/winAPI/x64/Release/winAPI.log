@@ -1,14 +1,19 @@
-﻿  warming2-12.c
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(38,23): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(60,22): warning C4133: '=': 'char [6]'과(와) 'LPTSTR' 사이의 형식이 호환되지 않습니다.
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(65,83): warning C4133: '함수': 'char [5]'과(와) 'LPCWSTR' 사이의 형식이 호환되지 않습니다.
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(105,67): warning C4267: '함수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(113,74): warning C4244: '함수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(120,53): warning C4047: '함수': 'LPCWSTR'의 간접 참조 수준이 'WCHAR'과(와) 다릅니다.
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(120,50): warning C4024: 'TextOutW': 형식 및 실제 매개 변수 4의 형식이 서로 다릅니다.
-D:\School\winAPI\WindowsProg\winAPI\warming2-12.c(123,11): warning C4552: '>>': 식의 결과가 사용되지 않습니다.
+﻿  main2.c
+D:\School\winAPI\WindowsProg\winAPI\object.h(46,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'Direction' 왼쪽은 무시됩니다.
+D:\School\winAPI\WindowsProg\winAPI\object.h(49,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'Pattern' 왼쪽은 무시됩니다.
+D:\School\winAPI\WindowsProg\winAPI\object.h(53,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'Point' 왼쪽은 무시됩니다.
+D:\School\winAPI\WindowsProg\winAPI\object.h(57,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'Object' 왼쪽은 무시됩니다.
+D:\School\winAPI\WindowsProg\winAPI\object.h(61,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'Player' 왼쪽은 무시됩니다.
+D:\School\winAPI\WindowsProg\winAPI\object.h(65,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'Block' 왼쪽은 무시됩니다.
+D:\School\winAPI\WindowsProg\winAPI\object.h(71,2): warning C4091: 'typedef ': 변수를 선언하지 않으면 'ObjectManager' 왼쪽은 무시됩니다.
+D:\School\winAPI\WindowsProg\winAPI\main2.c(39,23): warning C4244: 'return': 'WPARAM'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\School\winAPI\WindowsProg\winAPI\main2.c(73,20): warning C4133: '함수': 'HWND'과(와) 'ObjectManager *' 사이의 형식이 호환되지 않습니다.
+D:\School\winAPI\WindowsProg\winAPI\main2.c(73,25): warning C4133: '함수': 'ObjectManager *'과(와) 'HWND' 사이의 형식이 호환되지 않습니다.
+D:\School\winAPI\WindowsProg\winAPI\main2.c(238,16): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+D:\School\winAPI\WindowsProg\winAPI\main2.c(248,16): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
+D:\School\winAPI\WindowsProg\winAPI\main2.c(258,16): warning C4018: '>': signed 또는 unsigned가 일치하지 않습니다.
   코드를 생성하고 있습니다.
-  3 of 4 functions (75.0%) were compiled, the rest were copied from previous compilation.
+  0 of 16 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.

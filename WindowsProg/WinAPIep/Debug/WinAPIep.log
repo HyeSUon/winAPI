@@ -1,2 +1,2 @@
 ﻿  WinAPIep.cpp
-  WinAPIep.vcxproj -> D:\School\winAPI\WindowsProg\WinAPIep\Debug\WinAPIep.exe
+D:\School\winAPI\WindowsProg\WinAPIep\WinAPIep.cpp(16,37): error C2065: 'hDC': 선언되지 않은 식별자입니다.
