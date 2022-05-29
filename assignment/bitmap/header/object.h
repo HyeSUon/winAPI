@@ -7,23 +7,16 @@
 
 #define BULL_SPRITES 8
 
-class MyBackGround {
-public:
-	void static SetImage(LPCTSTR fileName);
-	void Draw(HDC memdc, const RECT& rView);
-private:
-	static CImage img;
-	static int imageW, imageH;
-};
+
 
 
 class MyObject {
 public:
 	MyObject() = default;
-	MyObject(int x, int y, int w, int h);
-protected:
-	int x, y;
-	int width, height;
+
+	virtual void Draw(HDC memdc) = 0;
+
+private:
 };
 
 class Bullbasaur : public MyObject {
@@ -31,10 +24,22 @@ public:
 	Bullbasaur() = default;
 	Bullbasaur(int x, int y, int width, int height);
 	void static SetImage(LPCTSTR fileName);
-	void Draw(HDC memdc);
+	virtual void Draw(HDC memdc);
 
 private:
 	static CImage img[BULL_SPRITES];
 	static int imageW[BULL_SPRITES], imageH[BULL_SPRITES];
-	int count;
+	int x, y, width, height;
+	int frame;
+};
+
+class MyBackGround : public MyObject {
+public:
+	MyBackGround(HWND hWnd);
+	void static SetImage(LPCTSTR fileName);
+	virtual void Draw(HDC memdc);
+private:
+	static CImage img;
+	static int imageW, imageH;
+	RECT rectView;
 };

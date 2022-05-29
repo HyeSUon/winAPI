@@ -46,7 +46,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	PAINTSTRUCT ps;
 	static HDC hdc, memdc;
 	static HBITMAP hBit;
-
+	static MyObject* obj[10];
+	static int cntObj;
 	static RECT rectView;
 	TCHAR word[] = _T("대한민국 화이팅");
 	//--- 메시지 처리하기
@@ -56,8 +57,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		MyBackGround::SetImage(L".\\bitmap2.bmp");
 		Bullbasaur::SetImage(L".\\image\\O");
-		static Bullbasaur obj(100, 100, 30, 30);
-		static MyBackGround bk;
+
+		obj[cntObj++] = new MyBackGround(hWnd);
+		obj[cntObj++] = new Bullbasaur(100, 100, 30, 30);
 		SetTimer(hWnd, 1, 100, NULL);
 		break;
 	case WM_TIMER:
@@ -69,9 +71,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		memdc = CreateCompatibleDC(hdc);
 		(HBITMAP)SelectObject(memdc, hBit);
 		::SetStretchBltMode(memdc, HALFTONE);
-
-		bk.Draw(memdc, rectView);
-		obj.Draw(memdc);
+		for (int i = 0; i < cntObj; ++i)
+			obj[i]->Draw(memdc);
 		BitBlt(hdc, 0, 0, rectView.right, rectView.bottom, memdc, 0, 0, SRCCOPY);
 		DeleteDC(memdc);
 		EndPaint(hWnd, &ps);
