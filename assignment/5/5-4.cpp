@@ -37,10 +37,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdPa
 	return Message.wParam;
 }
 
-CImage Bullbasaur::img[BULL_SPRITES], MyBackGround::img, Pokemon::img[PIKA_SPRITES], Pokemon::img2[PIKA_SPRITES], Pokemon::img3[PIKA_SPRITES];
+CImage Bullbasaur::img[BULL_SPRITES], MyBackGround::img, Pokemon::img[POKEMON_SPRITES], Pokemon::img2[POKEMON_SPRITES], Pokemon::img3[POKEMON_SPRITES];
 int Bullbasaur::imageW[BULL_SPRITES], Bullbasaur::imageH[BULL_SPRITES];
-int Pokemon::imageW[PIKA_SPRITES], Pokemon::imageH[PIKA_SPRITES], Pokemon::imageW2[PIKA_SPRITES], Pokemon::imageH2[PIKA_SPRITES];
-int Pokemon::imageW3[PIKA_SPRITES], Pokemon::imageH3[PIKA_SPRITES];
+int Pokemon::imageW[POKEMON_SPRITES], Pokemon::imageH[POKEMON_SPRITES], Pokemon::imageW2[POKEMON_SPRITES], Pokemon::imageH2[POKEMON_SPRITES];
+int Pokemon::imageW3[POKEMON_SPRITES], Pokemon::imageH3[POKEMON_SPRITES];
 
 
 int MyBackGround::imageW, MyBackGround::imageH;

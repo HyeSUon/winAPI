@@ -6,7 +6,7 @@
 #include "object.h"
 
 #define BULL_SPRITES 8
-#define PIKA_SPRITES 24
+#define POKEMON_SPRITES 24
 
 enum D {
 	B, 
@@ -72,14 +72,14 @@ public:
 	int getFrame();
 	D getD();
 	TCHAR getCharacter();
-	static CImage img[PIKA_SPRITES];
-	static int imageW[PIKA_SPRITES], imageH[PIKA_SPRITES];
+	static CImage img[POKEMON_SPRITES];
+	static int imageW[POKEMON_SPRITES], imageH[POKEMON_SPRITES];
 
-	static CImage img2[PIKA_SPRITES];
-	static int imageW2[PIKA_SPRITES], imageH2[PIKA_SPRITES];
+	static CImage img2[POKEMON_SPRITES];
+	static int imageW2[POKEMON_SPRITES], imageH2[POKEMON_SPRITES];
 
-	static CImage img3[PIKA_SPRITES];
-	static int imageW3[PIKA_SPRITES], imageH3[PIKA_SPRITES];
+	static CImage img3[POKEMON_SPRITES];
+	static int imageW3[POKEMON_SPRITES], imageH3[POKEMON_SPRITES];
 private:
 	int x, y, width, height;
 	D d;  // 8πÊ«‚
