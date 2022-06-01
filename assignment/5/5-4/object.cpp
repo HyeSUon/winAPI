@@ -1,6 +1,8 @@
 #include "object.h"
 
 
+
+Bullbasaur::Bullbasaur(int x, int y, int w, int h) : x{ x }, y{ y }, width{ w }, height{ h }, frame{ 0 } { }
 Pokemon::Pokemon(int x, int y, int w, int h, int s) : x{ x }, y{ y }, width{ w }, height{ h }, frame{ 0 }, 
 d{ B }, speed{ s }, isJumping{ false }, tempX{ 0 }, tempY{ 0 }, isBig{ false }, isSmall{ false }, isBallMode{ false },
 isTransform{ false } {
@@ -12,6 +14,29 @@ MyBackGround::MyBackGround(HWND hWnd) {
 SpriteObject::SpriteObject(int x, int y, int width, int height, int frame, TCHAR c) : x{ x }, y{ y }, width{ width }, 
 height{ height }, frame{ frame }, character{ c } {  
 
+}
+
+
+void Bullbasaur::SetImage(LPCTSTR fileName)
+{
+	for (int i = 0; i < BULL_SPRITES; ++i) {
+		TCHAR FullName[40];
+		wsprintf(FullName, L"%s%d.png", fileName, i+1);
+		img[i].Load(FullName);
+		imageW[i]= img[i].GetWidth();
+		imageH[i] = img[i].GetHeight();
+	}
+}
+void Bullbasaur::Draw(HDC memdc)
+{
+	int halfW = width / 2;
+	int halfH = height / 2;
+	img[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, imageW[frame], imageH[frame]);
+	frame = ++frame % BULL_SPRITES;
+}
+void Bullbasaur::Update()
+{
+	;
 }
 void MyBackGround::SetImage(LPCTSTR fileName)
 {
@@ -32,19 +57,19 @@ void MyBackGround::Update()
 void Pokemon::SetImage(LPCTSTR fileName, LPCTSTR fileName2, LPCTSTR fileName3)
 {
 	TCHAR FullName[40];
-	for (int i = 0; i < POKEMON_SPRITES; ++i) {
+	for (int i = 0; i < PIKA_SPRITES; ++i) {
 		wsprintf(FullName, L"%s%d.png", fileName, i+1);
 		img[i].Load(FullName);
 		imageW[i] = img[i].GetWidth();
 		imageH[i] = img[i].GetHeight();
 	}
-	for (int i = 0; i < POKEMON_SPRITES; ++i) {
+	for (int i = 0; i < PIKA_SPRITES; ++i) {
 		wsprintf(FullName, L"%s%d.png", fileName2, i);
 		img2[i].Load(FullName);
 		imageW2[i] = img2[i].GetWidth();
 		imageH2[i] = img2[i].GetHeight();
 	}
-	for (int i = 0; i < POKEMON_SPRITES; ++i) {
+	for (int i = 0; i < PIKA_SPRITES; ++i) {
 		wsprintf(FullName, L"%s%d.png", fileName3, i);
 		img3[i].Load(FullName);
 		imageW3[i] = img3[i].GetWidth();
