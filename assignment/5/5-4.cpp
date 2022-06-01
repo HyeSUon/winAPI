@@ -37,10 +37,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdPa
 	return Message.wParam;
 }
 
-CImage Bullbasaur::img[BULL_SPRITES], MyBackGround::img, Pikachu::img[PIKA_SPRITES], Pikachu::img2[PIKA_SPRITES], Pikachu::img3[PIKA_SPRITES];
+CImage Bullbasaur::img[BULL_SPRITES], MyBackGround::img, Pokemon::img[PIKA_SPRITES], Pokemon::img2[PIKA_SPRITES], Pokemon::img3[PIKA_SPRITES];
 int Bullbasaur::imageW[BULL_SPRITES], Bullbasaur::imageH[BULL_SPRITES];
-int Pikachu::imageW[PIKA_SPRITES], Pikachu::imageH[PIKA_SPRITES], Pikachu::imageW2[PIKA_SPRITES], Pikachu::imageH2[PIKA_SPRITES];
-int Pikachu::imageW3[PIKA_SPRITES], Pikachu::imageH3[PIKA_SPRITES];
+int Pokemon::imageW[PIKA_SPRITES], Pokemon::imageH[PIKA_SPRITES], Pokemon::imageW2[PIKA_SPRITES], Pokemon::imageH2[PIKA_SPRITES];
+int Pokemon::imageW3[PIKA_SPRITES], Pokemon::imageH3[PIKA_SPRITES];
 
 
 int MyBackGround::imageW, MyBackGround::imageH;
@@ -52,7 +52,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	static HDC hdc, memdc;
 	static HBITMAP hBit;
 	static MyObject* obj[20];
-	static Pikachu* pika;
+	static Pokemon* pika;
 	static int cntObj;
 	static RECT rectView;
 
@@ -64,14 +64,14 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		MyBackGround::SetImage(L".\\image\\bg.jpg");
 		Bullbasaur::SetImage(L".\\image\\O");
-		Pikachu::SetImage(L".\\image\\P", L".\\image\\E", L".\\image\\F");
+		Pokemon::SetImage(L".\\image\\P", L".\\image\\E", L".\\image\\F");
 		obj[cntObj++] = new MyBackGround(hWnd);
-		obj[cntObj++] = new Pikachu(200, 200, 30, 50, 10);
+		obj[cntObj++] = new Pokemon(200, 200, 30, 50, 10);
 
 		// 조작캐릭터 찾기 (여러 마리면 마지막 객체를 가리킴)
 		for (int i = 0; i < cntObj; ++i)
-			if (dynamic_cast<Pikachu*>(obj[i]))
-				pika = dynamic_cast<Pikachu*>(obj[i]);
+			if (dynamic_cast<Pokemon*>(obj[i]))
+				pika = dynamic_cast<Pokemon*>(obj[i]);
 		SetTimer(hWnd, 1, 100, NULL);
 		break;
 	case WM_TIMER:

@@ -3,7 +3,7 @@
 
 
 Bullbasaur::Bullbasaur(int x, int y, int w, int h) : x{ x }, y{ y }, width{ w }, height{ h }, frame{ 0 } { }
-Pikachu::Pikachu(int x, int y, int w, int h, int s) : x{ x }, y{ y }, width{ w }, height{ h }, frame{ 0 }, 
+Pokemon::Pokemon(int x, int y, int w, int h, int s) : x{ x }, y{ y }, width{ w }, height{ h }, frame{ 0 }, 
 d{ B }, speed{ s }, isJumping{ false }, tempX{ 0 }, tempY{ 0 }, isBig{ false }, isSmall{ false }, isBallMode{ false },
 isTransform{ false } {
 	character = 'P';
@@ -54,7 +54,7 @@ void MyBackGround::Update()
 }
 
 
-void Pikachu::SetImage(LPCTSTR fileName, LPCTSTR fileName2, LPCTSTR fileName3)
+void Pokemon::SetImage(LPCTSTR fileName, LPCTSTR fileName2, LPCTSTR fileName3)
 {
 	TCHAR FullName[40];
 	for (int i = 0; i < PIKA_SPRITES; ++i) {
@@ -78,16 +78,20 @@ void Pikachu::SetImage(LPCTSTR fileName, LPCTSTR fileName2, LPCTSTR fileName3)
 
 }
 
-void Pikachu::Update()
+void Pokemon::Update()
 {
 	if (isJumping) {
 		static int cnt = 0;
-		if (cnt < 5)
+		if (cnt == 0) {
+			tempX = x;
+			tempY = y;
+		}
+		if (cnt < 4)
 			y -= 5;
 		else
-			y += 5;
+			y += 10;
 		cnt++;
-		if (cnt == 10) {
+		if (cnt == 6) {
 			cnt = 0;
 			isJumping = false;
 		}
@@ -170,7 +174,7 @@ void Pikachu::Update()
 		}
 	}
 }
-void Pikachu::KeyEvent(WPARAM wParam)
+void Pokemon::KeyEvent(WPARAM wParam)
 {
 	if (isBallMode) {
 		if (wParam == 'a') {
@@ -181,8 +185,6 @@ void Pikachu::KeyEvent(WPARAM wParam)
 	}
 	switch (wParam) {
 	case 'j':
-		tempX = x;
-		tempY = y;
 		isJumping = true;
 		break;
 	case 'e':
@@ -198,7 +200,7 @@ void Pikachu::KeyEvent(WPARAM wParam)
 	}
 
 }
-void Pikachu::Move(const RECT& rView)
+void Pokemon::Move(const RECT& rView)
 {
 	int halfW = width / 2;
 	int halfH = height / 2;
@@ -272,7 +274,7 @@ void Pikachu::Move(const RECT& rView)
 
 
 }
-void Pikachu::Draw(HDC memdc)
+void Pokemon::Draw(HDC memdc)
 {
 	int halfW = width / 2;
 	int halfH = height / 2;
@@ -355,7 +357,7 @@ void Pikachu::Draw(HDC memdc)
 	else
 		img3[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, imageW3[frame], imageH3[frame]);
 }
-void Pikachu::MouseEvent(int mx, int my)
+void Pokemon::MouseEvent(int mx, int my)
 {
 	if (character == 'P')
 		character = 'F';
@@ -371,32 +373,32 @@ void Pikachu::MouseEvent(int mx, int my)
 	}
 
 }
-int Pikachu::getX()
+int Pokemon::getX()
 {
 	return x;
 }
-int Pikachu::getY()
+int Pokemon::getY()
 {
 	return y;
 }
-int Pikachu::getWidth()
+int Pokemon::getWidth()
 {
 	return width;
 }
-int Pikachu::getHeight()
+int Pokemon::getHeight()
 {
 	return height;
 }
-int Pikachu::getFrame()
+int Pokemon::getFrame()
 {
 	return frame;
 }
-D Pikachu::getD()
+D Pokemon::getD()
 {
 	return d;
 }
 
-TCHAR Pikachu::getCharacter()
+TCHAR Pokemon::getCharacter()
 {
 	return character;
 }
@@ -413,9 +415,9 @@ void SpriteObject::Draw(HDC memdc)
 	int halfW = width / 2;
 	int halfH = height / 2;
 	if (character == 'P')
-		Pikachu::img[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, Pikachu::imageW[frame], Pikachu::imageH[frame]);
+		Pokemon::img[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, Pokemon::imageW[frame], Pokemon::imageH[frame]);
 	else if (character == 'E')
-		Pikachu::img2[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, Pikachu::imageW2[frame], Pikachu::imageH2[frame]);
+		Pokemon::img2[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, Pokemon::imageW2[frame], Pokemon::imageH2[frame]);
 	else
-		Pikachu::img3[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, Pikachu::imageW3[frame], Pikachu::imageH3[frame]);
+		Pokemon::img3[frame].Draw(memdc, x - halfW, y - halfH, width, height, 0, 0, Pokemon::imageW3[frame], Pokemon::imageH3[frame]);
 }

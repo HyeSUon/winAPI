@@ -54,10 +54,10 @@ private:
 	RECT rectView;
 };
 
-class Pikachu : public MyObject {
+class Pokemon : public MyObject {
 public:
-	Pikachu() = default;
-	Pikachu(int x, int y, int width, int height, int speed);
+	Pokemon() = default;
+	Pokemon(int x, int y, int width, int height, int speed);
 	void static SetImage(LPCTSTR fileName, LPCTSTR fileName2, LPCTSTR fileName3);
 	virtual void Update();
 	virtual void Draw(HDC memdc);
