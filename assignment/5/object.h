@@ -5,7 +5,6 @@
 #include <atlimage.h>
 #include "object.h"
 
-#define BULL_SPRITES 8
 #define POKEMON_SPRITES 24
 
 enum D {
@@ -26,20 +25,6 @@ public:
 	virtual void Draw(HDC memdc) = 0;
 	virtual void Update() = 0;
 private:
-};
-
-class Bullbasaur : public MyObject {
-public:
-	Bullbasaur() = default;
-	Bullbasaur(int x, int y, int width, int height);
-	void static SetImage(LPCTSTR fileName);
-	virtual void Draw(HDC memdc);
-	virtual void Update();
-private:
-	static CImage img[BULL_SPRITES];
-	static int imageW[BULL_SPRITES], imageH[BULL_SPRITES];
-	int x, y, width, height;
-	int frame;
 };
 
 class MyBackGround : public MyObject {

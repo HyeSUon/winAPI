@@ -37,8 +37,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdPa
 	return Message.wParam;
 }
 
-CImage Bullbasaur::img[BULL_SPRITES], MyBackGround::img, Pokemon::img[POKEMON_SPRITES], Pokemon::img2[POKEMON_SPRITES], Pokemon::img3[POKEMON_SPRITES];
-int Bullbasaur::imageW[BULL_SPRITES], Bullbasaur::imageH[BULL_SPRITES];
+CImage MyBackGround::img, Pokemon::img[POKEMON_SPRITES], Pokemon::img2[POKEMON_SPRITES], Pokemon::img3[POKEMON_SPRITES];
 int Pokemon::imageW[POKEMON_SPRITES], Pokemon::imageH[POKEMON_SPRITES], Pokemon::imageW2[POKEMON_SPRITES], Pokemon::imageH2[POKEMON_SPRITES];
 int Pokemon::imageW3[POKEMON_SPRITES], Pokemon::imageH3[POKEMON_SPRITES];
 
@@ -63,7 +62,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		GetClientRect(hWnd, &rectView);
 
 		MyBackGround::SetImage(L".\\image\\bg.jpg");
-		Bullbasaur::SetImage(L".\\image\\O");
 		Pokemon::SetImage(L".\\image\\P", L".\\image\\E", L".\\image\\F");
 		obj[cntObj++] = new MyBackGround(hWnd);
 		obj[cntObj++] = new Pokemon(200, 200, 30, 50, 10);
